@@ -19,6 +19,9 @@ public class MarkdownParse {
             if(openBracket == -1 || closeBracket==-1 || openParen == -1 || closeParen == -1){
               break;
             }
+            else if (=' ') {
+                
+            }
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
             
@@ -26,7 +29,14 @@ public class MarkdownParse {
 
         return toReturn;
     }
-
+    public boolean hasRightSpacing(String str) {
+        for (int i = 1; i < str.length(); i+= 2) {
+            if (str.charAt(i) != ' ') {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public static void main(String[] args) throws IOException {
         Path fileName = Path.of(args[0]);
