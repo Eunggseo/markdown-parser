@@ -1,4 +1,4 @@
-//https://howtodoinjava.com/java/io/java-read-file-to-string-examples/
+
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -17,7 +17,8 @@ public class MarkdownParse {
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
             if(openBracket == -1 || closeBracket==-1 || openParen == -1 || closeParen == -1){
-              break;
+              currentIndex = markdown.length();
+	      break;// prevents infinite loop
             }
             else if (=' ') {
                 
