@@ -20,24 +20,22 @@ public class MarkdownParse {
               currentIndex = markdown.length();
 	          break;// prevents infinite loop
             }
-            else if (closeBracket + 1 == openParen && openBracket != -1) {
+             else if (closeBracket + 1 == openParen && openBracket != -1) {
                 if (markdown.indexOf("\n", openBracket) < closeParen) {
-                    currentIndex = closeParen;
-                }
+                     currentIndex = closeParen;
+                 } else if (markdown.charAt(openBracket - 1) == '!') {
+                        currentIndex = closeParen + 1; 
+                    } else {
+                        toReturn.add(markdown.substring(openParen + 1, closeParen));
+                        currentIndex = closeParen + 1;
+                    }
+                 }
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
             
         }
 
         return toReturn;
-    }
-    public boolean hasRightSpacing(String str) {
-        for (int i = 1; i < str.length(); i+= 2) {
-            if (str.charAt(i) != ' ') {
-                return false;
-            }
-        }
-        return true;
     }
 
     public static void main(String[] args) throws IOException {
