@@ -23,6 +23,7 @@ public class MarkdownParse {
             else if (closeBracket + 1 == openParen && openBracket != -1) {
                 if (markdown.indexOf("\n", openBracket) < closeParen) {
                     currentIndex = closeParen;
+                }
             toReturn.add(markdown.substring(openParen + 1, closeParen));
             currentIndex = closeParen + 1;
             
