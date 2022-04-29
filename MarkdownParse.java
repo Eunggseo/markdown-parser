@@ -16,23 +16,25 @@ public class MarkdownParse {
             int closeBracket = markdown.indexOf("]", openBracket);
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
+            System.out.println(closeParen);
+
             if(openBracket == -1 || closeBracket==-1 || openParen == -1 || closeParen == -1){
+            //In this iteration, we don't have enough []{}
               currentIndex = markdown.length();
 	          break;// prevents infinite loop
             }
              else if (closeBracket + 1 == openParen && openBracket != -1) {
                 if (markdown.indexOf("\n", openBracket) < closeParen) {
+                    //openBracket and closeBracket are not on the same line
                      currentIndex = closeParen;
-                 } else if (markdown.charAt(openBracket - 1) == '!') {
+                 } 
+                 else if (markdown.charAt(openBracket - 1) == '!') {
                         currentIndex = closeParen + 1; 
-                    } else {
+                    } 
+                    else {
                         toReturn.add(markdown.substring(openParen + 1, closeParen));
                         currentIndex = closeParen + 1;
                     }
-                 }
-            toReturn.add(markdown.substring(openParen + 1, closeParen));
-            currentIndex = closeParen + 1;
-            
         }
 
         return toReturn;
