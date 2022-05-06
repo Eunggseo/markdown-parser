@@ -17,11 +17,11 @@ public class MarkdownParse {
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
             System.out.println(closeParen);
-
+            //System.out.println(x);
             if(openBracket == -1 || closeBracket==-1 || openParen == -1 || closeParen == -1){
             //In this iteration, we don't have enough []{}
               currentIndex = markdown.length();
-	          break;// prevents infinite loop
+	          break;// prevents infinite loop w
             }
              else if (closeBracket + 1 == openParen && openBracket != -1) {
                 if (markdown.indexOf("\n", openBracket) < closeParen) {
