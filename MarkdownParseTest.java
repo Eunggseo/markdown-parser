@@ -37,8 +37,7 @@ public class MarkdownParseTest {
     }
 
     @Test
-    public void testSnippet1() throws IOException{
-        // Path fileName = Path.of("/Users/hantian_lin/Documents/GitHub/markdown-parser/snippet1.md");
+    public void snippet1GetLinks() throws IOException{
         Path fileName = Path.of("/Users/wenyuzhong/Documents/GitHub/markdown-parsergroup2/Snippet 1.md");
         String content = Files.readString(fileName);
 
@@ -47,8 +46,7 @@ public class MarkdownParseTest {
     }
 
     @Test
-    public void testSnippet2() throws IOException{
-        //Path fileName = Path.of("/Users/hantian_lin/Documents/GitHub/markdown-parser/snippet2.md");
+    public void snippet2GetLinks() throws IOException{
         Path fileName = Path.of("/Users/wenyuzhong/Documents/GitHub/markdown-parsergroup2/snippet 2.md");
         String content = Files.readString(fileName);
 
@@ -57,8 +55,7 @@ public class MarkdownParseTest {
     }
 
     @Test
-    public void testSnippet3() throws IOException{
-        //Path fileName = Path.of("/Users/hantian_lin/Documents/GitHub/markdown-parser/snippet3.md");
+    public void snippet3GetLinks() throws IOException{
         Path fileName = Path.of("/Users/wenyuzhong/Documents/GitHub/markdown-parsergroup2/Snippet 3.md");
         String content = Files.readString(fileName);
         assertEquals(List.of("https://www.twitter.com",
